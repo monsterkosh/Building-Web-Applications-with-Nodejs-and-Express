@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "DEBUG=server nodemon server.js",
+    "debug": "DEBUG=* nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,6 +13,14 @@
   "dependencies": {
     "debug": "^4.3.3",
     "express": "^4.17.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  },
+  "nodemonConfig" : {
+    "restarteable": "rs",
+    "delay": 1500,
+    "env": {
+      "PORT" : 4000
+    }
   }
 }
