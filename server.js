@@ -8,8 +8,11 @@ const PORT = process.env.PORT || 3000;
 server.use(morgan('tiny'));
 server.use(express.static(path.join(__dirname, '/public')));
 
+server.set('views', './src/views');
+server.set('view engine', 'ejs');
+
 server.get('/', (req, res) => {
-  res.send('Hello...');
+  res.render('index', { title: 'MONJS', data: ['a', 'b', 'c'] });
 });
 
 server.listen(3000, () => {
