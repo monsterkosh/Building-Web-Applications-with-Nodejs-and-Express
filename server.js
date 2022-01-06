@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 
 const sessionsRouter = require('./src/routers/sessionsRouter');
+const adminRouter = require('./src/routers/adminRouter');
 const debug = require('debug')('server');
 const server = express();
 const path = require('path');
@@ -14,6 +15,7 @@ server.set('views', './src/views');
 server.set('view engine', 'ejs');
 
 server.use('/sessions', sessionsRouter);
+server.use('/admin', adminRouter);
 
 server.get('/', (req, res) => {
   res.render('index', { title: 'MONJS', data: ['a', 'b', 'c'] });
@@ -22,3 +24,5 @@ server.get('/', (req, res) => {
 server.listen(3000, () => {
   debug(`Listening on port ${PORT}`);
 });
+
+// GolaGumrPWVnwqGH
